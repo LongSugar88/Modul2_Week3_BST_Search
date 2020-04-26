@@ -35,23 +35,24 @@ public class BST<T extends Comparable> {
             return true;
         }
     }
-
     public boolean search(T element){
+        return search(root, element);
+    }
+    private boolean search(Node<T> root, T element) {
         Node<T> current = root;
-        if(root.data == element){
-            return true;
-        } else {
-            while (current != null){
-                if(current.data.compareTo(element) == 0 ){
-                    return true;
-                } else if(current.data.compareTo(element) < 0 ){
-                    current = current.right;
-                } else if(current.data.compareTo(element) > 0){
-                    current = current.left;
-                }
-            }
+        if (root.data == null) {
+            System.out.println("false");
             return false;
         }
-
+        if (root.data == element) {
+            System.out.println("true");
+            return true;
+        } else if (current.data.compareTo(element) > 0) {
+            return search(current.left, element);
+        } else if (current.data.compareTo(element) < 0) {
+            return search(current.right, element);
+        }
+        return false;
     }
+
 }

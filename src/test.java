@@ -12,7 +12,7 @@ public class test {
         myTree.insert(101);
 
         System.out.println("-----------------------");
-        System.out.println(myTree.search(101));
+        myTree.search(100);
         System.out.println("-----------------------");
     }
 }
